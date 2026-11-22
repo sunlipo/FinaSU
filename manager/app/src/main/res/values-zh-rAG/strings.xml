@@ -150,12 +150,12 @@
     <string name="home_learn_kernelsu_url">https://kernelsu.org/guide/what-is-kernelsu.html</string>
     <string name="home_click_to_learn_kernelsu">看看怎么装 KernelSU、怎么写模块喵</string>
     <string name="home_learn_finasu">了解一下 FinaSU 喵</string>
-    <string name="home_learn_finasu_url">https://fina.mysqil.com/</string>
+    <string name="home_learn_finasu_url">https://estplca.m.chenzhongtech.com/fw/user/ykmsnb666?cc=share_wxms&amp;kpf=ANDROID_PHONE&amp;fid=3770392881&amp;shareMode=app&amp;shareMethod=picture&amp;appType=21&amp;kpn=KUAISHOU&amp;subBiz=QR_CODE_PROFILE&amp;shareId=19182963972868&amp;shareToken=YgBX4dpKc&amp;shareObjectId=3770392881</string>
     <string name="home_click_to_learn_finasu">看看 FinaSU 有什么好玩的喵</string>
     <string name="home_support_title">支持人家嘛喵</string>
     <string name="home_support_content">KernelSU 会一直免费开源喵，给开发者捐点小钱钱就是最好的鼓励啦</string>
     <string name="home_gki_warning">从 v3.0.0 起，GKI 工作模式只在测试环境用喵，人家不建议日常使唤它，镜像文件也不提供啦</string>
-    <string name="about_source_code"><![CDATA[在 %1$s 看人家的源码喵<br/>来加咱的 %2$s 频道嘛]]></string>
+    <string name="about_source_code"><![CDATA[作者：钻酱<br/><b><a href="https://estplca.m.chenzhongtech.com/fw/user/ykmsnb666?cc=share_wxms&amp;kpf=ANDROID_PHONE&amp;fid=3770392881&amp;shareMode=app&amp;shareMethod=picture&amp;appType=21&amp;kpn=KUAISHOU&amp;subBiz=QR_CODE_PROFILE&amp;shareId=19182963972868&amp;shareToken=YgBX4dpKc&amp;shareObjectId=3770392881">打开作者快手主页</a></b>]]></string>
     <string name="profile" translatable="false">App Profile</string>
     <string name="profile_default">默认喵</string>
     <string name="profile_template">模板喵</string>

@@ -239,6 +239,7 @@ open class MainActivity : FragmentActivity() {
         }
 
         WallpaperConfig.load(this)
+        me.weishu.kernelsu.wallpaper.DefaultBackground.applyIfNeeded(this)
         FontConfig.load(this)
         ProfileConfig.load(this)
         // Activity recreation must not overwrite a slider edit still waiting for its debounce.
@@ -523,20 +524,7 @@ open class MainActivity : FragmentActivity() {
                     val prefs = remember {
                         ksuApp.getSharedPreferences("settings", Context.MODE_PRIVATE)
                     }
-                    var showFirstRunGuide by rememberSaveable {
-                        mutableStateOf(
-                            savedInstanceState == null &&
-                                !prefs.getBoolean("first_run_guide_done", false),
-                        )
-                    }
-                    if (showFirstRunGuide) {
-                        FirstRunGuide(
-                            onDismiss = {
-                                prefs.edit().putBoolean("first_run_guide_done", true).apply()
-                                showFirstRunGuide = false
-                            },
-                        )
-                    }
+                    var showFirstRunGuide by rememberSaveable { mutableStateOf(false) }
                     }
                     SideEffect { contentReady = true }
                     AuthenticationHost(authenticationSession)

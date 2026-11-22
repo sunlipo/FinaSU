@@ -26,7 +26,6 @@ enum class SettingsCategory(
     val icon: ImageVector,
 ) {
     GENERAL("general", R.string.settings_category_general, Icons.Filled.Settings),
-    APPEARANCE("appearance", R.string.settings_category_appearance, Icons.Filled.Brush),
     BEHAVIOR("behavior", R.string.settings_category_behavior, Icons.Filled.TouchApp),
     FUNCTION("function", R.string.settings_category_function, Icons.Filled.Handyman),
     SECURITY("security", R.string.settings_category_security, Icons.Filled.Security),

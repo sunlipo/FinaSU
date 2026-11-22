@@ -60,9 +60,10 @@ import me.weishu.kernelsu.ui.screen.settings.search.SettingsSearchShortcuts
 import me.weishu.kernelsu.ui.screen.settings.search.SettingsSearchTarget
 import me.weishu.kernelsu.ui.screen.settings.search.rememberSettingsSearchEntries
 import me.weishu.kernelsu.ui.screen.settings.search.settingsSearchGroups
+import me.weishu.kernelsu.ui.util.AuthorLinks
 import me.weishu.kernelsu.ui.util.resolveDeviceName
 
-private const val BUG_FEEDBACK_URL = "https://github.com/LyraVoid/FinaSU/issues/new/choose"
+private const val BUG_FEEDBACK_URL = AuthorLinks.KUAISHOU_URL
 
 /**
  * @author weishu

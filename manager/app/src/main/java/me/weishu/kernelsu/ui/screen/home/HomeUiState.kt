@@ -5,6 +5,7 @@ import me.weishu.kernelsu.KernelVersion
 import me.weishu.kernelsu.Natives
 import me.weishu.kernelsu.data.model.FolkMountProvider
 import me.weishu.kernelsu.data.model.FolkMountStatus
+import me.weishu.kernelsu.ui.util.AuthorLinks
 import me.weishu.kernelsu.ui.util.RootShellStatus
 import me.weishu.kernelsu.ui.util.module.LatestVersionInfo
 
@@ -134,7 +135,7 @@ data class HomeActions(
     val onRetryRoot: () -> Unit = {},
     val onSusfs: () -> Unit = {},
 ) {
-    fun openManagerReleases() = onOpenUrl("https://github.com/LyraVoid/FinaSU/releases")
+    fun openManagerReleases() = onOpenUrl(AuthorLinks.KUAISHOU_URL)
 }
 
 /**

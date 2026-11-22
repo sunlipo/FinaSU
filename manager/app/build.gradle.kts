@@ -25,8 +25,8 @@ val managerVersionCode = rootProject.extra["managerVersionCode"] as Int
 val managerVersionName = rootProject.extra["managerVersionName"] as String
 
 val isPrBuild = project.findProperty("IS_PR_BUILD")?.toString()?.toBoolean() ?: false
-val defaultManagerPackageName = if (isPrBuild) "me.yuki.fina.pr" else "me.yuki.fina"
-val defaultManagerName = if (isPrBuild) "FinaSU PR" else "FinaSU"
+val defaultManagerPackageName = if (isPrBuild) "me.ZJsu.love" else "me.ZJsu.love"
+val defaultManagerName = if (isPrBuild) "钻酱su" else "钻酱su"
 val managerPackageName = project.findProperty("KSU_PACKAGE_NAME")?.toString() ?: defaultManagerPackageName
 val managerName = project.findProperty("KSU_NAME")?.toString() ?: defaultManagerName
 
@@ -211,7 +211,7 @@ androidComponents {
 
 base {
     archivesName.set(
-        "${managerName.replace(" ", "_")}_${managerVersionName}_${managerVersionCode}"
+        "ZJsu_${managerVersionName}_${managerVersionCode}"
     )
 }
 

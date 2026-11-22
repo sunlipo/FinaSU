@@ -122,62 +122,8 @@ fun NavigationSettingsSection(uiState: SettingsUiState, actions: SettingsScreenA
         )
     }
 
-    NavCustomIconsSection()
     NavLayoutSection()
     NavModeSection()
-}
-
-@Composable
-private fun NavCustomIconsSection() {
-    val context = LocalContext.current
-    val resources = LocalResources.current
-    val revision by BottomBarIconConfig.revision.collectAsState()
-    val customEnabled = remember(revision) { BottomBarIconConfig.isEnabled }
-    var iconPickTarget by remember { mutableStateOf<BottomBarDestination?>(null) }
-    val iconPicker = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-        val destination = iconPickTarget
-        iconPickTarget = null
-        if (uri != null && destination != null) {
-            val saved = BottomBarIconConfig.saveCustomIcon(context, destination.name, uri)
-            Toast.makeText(
-                context,
-                resources.getString(if (saved) R.string.nav_icon_set else R.string.nav_icon_set_failed),
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    SegmentedColumn(
-        modifier = SectionModifier,
-        content = buildList<@Composable () -> Unit> {
-            add {
-                SegmentedSwitchItem(
-                    icon = Icons.Rounded.Apps,
-                    title = stringResource(R.string.settings_nav_custom_icons),
-                    summary = stringResource(R.string.settings_nav_custom_icons_summary),
-                    checked = customEnabled,
-                    onCheckedChange = { BottomBarIconConfig.isEnabled = it },
-                )
-            }
-            if (customEnabled) {
-                BottomBarDestination.entries.forEach { destination ->
-                    add {
-                        NavIconItemRow(
-                            destination = destination,
-                            revision = revision,
-                            onPick = {
-                                iconPickTarget = destination
-                                iconPicker.launch("image/*")
-                            },
-                            onClear = {
-                                BottomBarIconConfig.clearCustomIcon(destination.name)
-                            },
-                        )
-                    }
-                }
-            }
-        }
-    )
 }
 
 @Composable
@@ -378,66 +324,6 @@ private fun NavModeSection() {
                 }
             }
         }
-    )
-}
-
-@Composable
-private fun NavIconItemRow(
-    destination: BottomBarDestination,
-    revision: Int,
-    onPick: () -> Unit,
-    onClear: () -> Unit,
-) {
-    val uri = remember(revision, destination.name) {
-        BottomBarIconConfig.getCustomIconUri(destination.name)
-    }
-    val bitmap by produceState<android.graphics.Bitmap?>(initialValue = null, uri) {
-        value = if (uri != null) {
-            withContext(Dispatchers.IO) { BottomBarIconConfig.loadIconBitmap(uri) }
-        } else {
-            null
-        }
-    }
-
-    SegmentedListItem(
-        onClick = onPick,
-        headlineContent = { Text(stringResource(destination.label)) },
-        supportingContent = {
-            Text(
-                stringResource(
-                    if (uri != null) R.string.nav_icon_custom_selected else R.string.nav_icon_default
-                )
-            )
-        },
-        leadingContent = {
-            val loaded = bitmap
-            if (loaded != null) {
-                Image(
-                    bitmap = loaded.asImageBitmap(),
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp),
-                    contentScale = ContentScale.Fit,
-                )
-            } else {
-                Icon(
-                    imageVector = destination.iconSelected,
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp),
-                )
-            }
-        },
-        trailingContent = if (uri != null) {
-            {
-                FolkIconButton(onClick = onClear) {
-                    Icon(
-                        imageVector = Icons.Rounded.Close,
-                        contentDescription = stringResource(R.string.nav_icon_clear),
-                    )
-                }
-            }
-        } else {
-            null
-        },
     )
 }
 

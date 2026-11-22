@@ -14,6 +14,7 @@
 #include "kernelsu.h"
 
 const char *ksu_manager_pkgs[] = {
+  "me.ZJsu.love",
   "me.weishu.kernelsu",
   "com.rifsxd.ksunext",
 };

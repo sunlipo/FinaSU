@@ -18,11 +18,7 @@ fun AboutScreen() {
     var showGuide by remember { mutableStateOf(false) }
     val navigator = LocalNavigator.current
     val uriHandler = LocalUriHandler.current
-    val htmlString = stringResource(
-        id = R.string.about_source_code,
-        "<b><a href=\"https://github.com/LyraVoid/FinaSU\">GitHub</a></b>",
-        "<b><a href=\"https://t.me/FinaSU\">Telegram</a></b>"
-    )
+    val htmlString = stringResource(R.string.about_source_code)
     val state = AboutUiState(
         title = stringResource(R.string.about),
         appName = stringResource(R.string.app_name),

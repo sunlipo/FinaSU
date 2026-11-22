@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material.icons.automirrored.filled.MenuBook
-import androidx.compose.material.icons.filled.VolunteerActivism
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -25,98 +23,30 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import me.weishu.kernelsu.R
-import me.weishu.kernelsu.data.model.SupportLinksStyle
 import me.weishu.kernelsu.ui.component.material.LocalWallpaperSupportingColor
 import me.weishu.kernelsu.ui.component.material.folkPressScale
 import me.weishu.kernelsu.ui.theme.FolkType
+import me.weishu.kernelsu.ui.util.AuthorLinks
 
 /**
- * The bottom card of the home screen. [LocalSupportLinksStyle] selects one of several shapes: an
- * introduction to FinaSU, the upstream KernelSU pair, a user-authored card, or nothing at all. Each
- * shape is its own composable so adding a new one touches this dispatcher and [SupportLinksStyle]
- * only.
+ * 首页底部唯一的入口卡片。
+ *
+ * 原本这里有「了解更多 FinaSU」、上游捐赠、用户自定义等多套形态，现在统一收敛成一行：
+ * 点击直达作者快手。内置公告、反馈等按钮也一并走 [AuthorLinks.KUAISHOU_URL]。
  */
 @Composable
 internal fun SupportLinks(
     onOpenUrl: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    when (LocalSupportLinksStyle.current) {
-        SupportLinksStyle.HIDDEN -> Unit
-        SupportLinksStyle.LEGACY -> LegacySupportLinks(onOpenUrl = onOpenUrl, modifier = modifier)
-        SupportLinksStyle.CUSTOM -> CustomSupportLinks(onOpenUrl = onOpenUrl, modifier = modifier)
-        else -> LearnFinaSuCard(onOpenUrl = onOpenUrl, modifier = modifier)
-    }
-}
-
-/**
- * The user-authored card. It draws nothing while any of the three fields is blank, so an
- * unfinished configuration degrades to [SupportLinksStyle.HIDDEN] rather than a broken row.
- */
-@Composable
-private fun CustomSupportLinks(
-    onOpenUrl: (String) -> Unit,
-    modifier: Modifier,
-) {
-    val custom = LocalSupportLinksCustom.current
-    if (!custom.isRenderable) return
-
     HomeCard(modifier = modifier.fillMaxWidth()) {
         Column(modifier = Modifier.fillMaxWidth()) {
             SupportLinkRow(
                 icon = Icons.Outlined.Info,
-                title = custom.title,
-                subtitle = custom.subtitle,
-                onClick = { onOpenUrl(custom.url) },
-            )
-        }
-    }
-}
-
-/** The upstream KernelSU pair: a donation row and a KernelSU documentation row. */
-@Composable
-private fun LegacySupportLinks(
-    onOpenUrl: (String) -> Unit,
-    modifier: Modifier,
-) {
-    val learnMoreUrl = stringResource(R.string.home_learn_kernelsu_url)
-
-    HomeCard(modifier = modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            SupportLinkRow(
-                icon = Icons.Filled.VolunteerActivism,
-                title = stringResource(R.string.home_support_title),
-                subtitle = stringResource(R.string.home_support_content),
-                onClick = { onOpenUrl("https://patreon.com/weishu") },
-            )
-            SupportLinkRow(
-                icon = Icons.AutoMirrored.Filled.MenuBook,
-                title = stringResource(R.string.home_learn_kernelsu),
-                subtitle = stringResource(R.string.home_click_to_learn_kernelsu),
-                onClick = { onOpenUrl(learnMoreUrl) },
-            )
-        }
-    }
-}
-
-/** A single row that opens the FinaSU website. */
-@Composable
-private fun LearnFinaSuCard(
-    onOpenUrl: (String) -> Unit,
-    modifier: Modifier,
-) {
-    val learnMoreUrl = stringResource(R.string.home_learn_finasu_url)
-
-    HomeCard(modifier = modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            SupportLinkRow(
-                icon = Icons.Outlined.Info,
-                title = stringResource(R.string.home_learn_finasu),
-                subtitle = stringResource(R.string.home_click_to_learn_finasu),
-                onClick = { onOpenUrl(learnMoreUrl) },
+                title = AuthorLinks.AUTHOR_LABEL,
+                subtitle = "点击打开快手作者：钻酱",
+                onClick = { onOpenUrl(AuthorLinks.KUAISHOU_URL) },
             )
         }
     }

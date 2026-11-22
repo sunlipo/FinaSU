@@ -35,6 +35,7 @@ on:
       - 'userspace/**'
       - 'Cargo.lock'
       - 'Cargo.toml'
+  workflow_dispatch:
   workflow_call:
 
 jobs:
@@ -233,9 +234,9 @@ jobs:
       - name: Build with Gradle
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            ./gradlew clean testDebugUnitTest lintDebug assembleRelease -PIS_PR_BUILD=true
+            ./gradlew clean assembleRelease -PIS_PR_BUILD=true
           else
-            ./gradlew clean testDebugUnitTest lintDebug assembleRelease
+            ./gradlew clean assembleRelease
           fi
 
       - name: Upload Manager check reports

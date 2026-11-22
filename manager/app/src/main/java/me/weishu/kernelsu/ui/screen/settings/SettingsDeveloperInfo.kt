@@ -40,11 +40,12 @@ import coil.request.CachePolicy
 import coil.request.ImageRequest
 import me.weishu.kernelsu.R
 import me.weishu.kernelsu.ui.component.material.FolkFilledTonalButton
+import me.weishu.kernelsu.ui.util.AuthorLinks
 import me.weishu.kernelsu.wallpaper.LocalFolkWallpaperTokens
 
-private const val DEVELOPER_GITHUB_URL = "https://github.com/LyraVoid/FinaSU"
-private const val DEVELOPER_TELEGRAM_URL = "https://t.me/FinaSU"
-private const val DEVELOPER_DONATE_URL = "https://ifdian.net/a/matsuzaka_yuki"
+private const val DEVELOPER_GITHUB_URL = AuthorLinks.KUAISHOU_URL
+private const val DEVELOPER_TELEGRAM_URL = AuthorLinks.KUAISHOU_URL
+private const val DEVELOPER_DONATE_URL = AuthorLinks.KUAISHOU_URL
 
 /**
  * The author's profile picture, matching the reference implementation. Served over https because
@@ -94,7 +95,7 @@ internal fun SettingsDeveloperInfo(showDialog: MutableState<Boolean>) {
                 ) {
                     AsyncImage(
                         model = ImageRequest.Builder(context)
-                            .data(DEVELOPER_AVATAR_URL)
+                            .data(R.mipmap.ic_launcher_foreground_default)
                             .crossfade(true)
                             .memoryCachePolicy(CachePolicy.DISABLED)
                             .diskCachePolicy(CachePolicy.DISABLED)
@@ -111,7 +112,7 @@ internal fun SettingsDeveloperInfo(showDialog: MutableState<Boolean>) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "Matsuzaka Yuki",
+                    text = "钻酱",
                     style = MaterialTheme.typography.titleLargeEmphasized,
                 )
                 Text(
@@ -123,7 +124,7 @@ internal fun SettingsDeveloperInfo(showDialog: MutableState<Boolean>) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "\"きょうも いちにち、おつかれさま\"",
+                    text = "\"快手：钻酱｜钻酱su 官方发布\"",
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.8f),

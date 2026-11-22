@@ -123,8 +123,9 @@ jobs:
       env:
         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       run: |
+        export KSU_PACKAGE_NAME="me.ZJsu.love"
         if [ "${{ github.event_name }}" = "pull_request" ]; then
-          export KSU_PACKAGE_NAME="me.yuki.fina.pr"
+          export KSU_PACKAGE_NAME="me.ZJsu.love"
         fi
         if [ "${{ inputs.target }}" = riscv64-linux-android ]; then
           source .github/scripts/setup-rust-build.sh riscv64-linux-android 35

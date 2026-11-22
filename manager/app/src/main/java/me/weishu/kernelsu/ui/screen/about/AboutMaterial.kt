@@ -100,26 +100,6 @@ fun AboutScreenMaterial(
                         }
                     }
                 )
-                SegmentedColumn(
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                    content = listOf {
-                        SegmentedListItem(
-                            onClick = actions.onShowGuide,
-                            leadingContent = {
-                                Icon(
-                                    imageVector = Icons.Outlined.AutoAwesome,
-                                    contentDescription = null,
-                                )
-                            },
-                            headlineContent = {
-                                Text(stringResource(R.string.guide_about_entry_title))
-                            },
-                            supportingContent = {
-                                Text(stringResource(R.string.guide_about_entry_summary))
-                            },
-                        )
-                    },
-                )
                 Spacer(
                     Modifier.height(
                         WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding() +

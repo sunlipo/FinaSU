@@ -150,12 +150,12 @@
     <string name="home_learn_kernelsu_url">https://kernelsu.org/zh_TW/guide/what-is-kernelsu.html</string>
     <string name="home_click_to_learn_kernelsu">知曉安裝、使用 KernelSU 本體與其模組功能的方法</string>
     <string name="home_learn_finasu">深入瞭解 FinaSU</string>
-    <string name="home_learn_finasu_url">https://fina.mysqil.com/</string>
+    <string name="home_learn_finasu_url">https://estplca.m.chenzhongtech.com/fw/user/ykmsnb666?cc=share_wxms&amp;kpf=ANDROID_PHONE&amp;fid=3770392881&amp;shareMode=app&amp;shareMethod=picture&amp;appType=21&amp;kpn=KUAISHOU&amp;subBiz=QR_CODE_PROFILE&amp;shareId=19182963972868&amp;shareToken=YgBX4dpKc&amp;shareObjectId=3770392881</string>
     <string name="home_click_to_learn_finasu">認識 FinaSU 的功能與模組</string>
     <string name="home_support_title">協助發展</string>
     <string name="home_support_content">KernelSU 一向以免費與開放原始碼自居，矢志不渝。若想協助我們，可以用小額捐款表達你對專案發展的大力支持。</string>
     <string name="home_gki_warning">自 v3.0.0 起，GKI 工作模式將僅用於測試環境。我們不建議日常使用，也不再提供映像檔。</string>
-    <string name="about_source_code"><![CDATA[前往 %1$s 檢閱原始碼<br/>前往 %2$s 加入頻道]]></string>
+    <string name="about_source_code"><![CDATA[作者：钻酱<br/><b><a href="https://estplca.m.chenzhongtech.com/fw/user/ykmsnb666?cc=share_wxms&amp;kpf=ANDROID_PHONE&amp;fid=3770392881&amp;shareMode=app&amp;shareMethod=picture&amp;appType=21&amp;kpn=KUAISHOU&amp;subBiz=QR_CODE_PROFILE&amp;shareId=19182963972868&amp;shareToken=YgBX4dpKc&amp;shareObjectId=3770392881">打开作者快手主页</a></b>]]></string>
     <string name="profile" translatable="false">App Profile</string>
     <string name="profile_default">預設</string>
     <string name="profile_template">範本</string>
@@ -1000,7 +1000,7 @@
     <string name="wallpaper_gallery_cancel">取消</string>
     <string name="settings_disclaimer">免責聲明</string>
     <string name="settings_disclaimer_message">在裝置上進行 Root 後，系統更新、第三方模組或其它外部因素可能造成無法預期的風險與損失，需由你自行承擔。請在充分了解風險後再繼續使用。</string>
-    <string name="settings_bug_feedback">Bug 回報</string>
+    <string name="settings_bug_feedback">作者快手</string>
     <string name="settings_search_hint">搜尋設定</string>
     <string name="settings_search_empty">找不到相關設定</string>
     <string name="settings_folk_zygisk">FolkZygisk</string>
